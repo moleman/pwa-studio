@@ -1,0 +1,35 @@
+# Default values for venia-concept.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+replicaCount: 1
+
+image:
+  repository: pdahlstrom/venia-concept
+  tag: latest
+  pullPolicy: Always
+
+env:
+  magentoBackendUrl: https://release-dev-rxvv2iq-zddsyhrdimyra.us-4.magentosite.cloud/
+
+nameOverride: ""
+fullnameOverride: ""
+
+service:
+  type: ClusterIP
+  port: 80
+
+ingress:
+  enabled: false
+  annotations: {}
+    # kubernetes.io/ingress.class: nginx
+    # kubernetes.io/tls-acme: "true"
+  path: /
+  hosts:
+    - venia-concept.local
+  tls: []
+  #  - secretName: chart-example-tls
+  #    hosts:
+  #      - chart-example.local
+
+resources: {}
